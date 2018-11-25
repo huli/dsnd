@@ -100,14 +100,18 @@ def find_optimal_lm_mod(X, y, cutoffs, test_size = .30, random_state=42, plot=Tr
         y_test_preds = lm_model.predict(X_test)
         y_train_preds = lm_model.predict(X_train)
 
-        #append the r2 value from the test set
-        r2_scores_test.append(r2_score(y_test, y_test_preds))
-        r2_scores_train.append(r2_score(y_train, y_train_preds))
+        # append the r2 value from the test set
+        test_score = r2_score(y_test, y_test_preds)
+        r2_scores_test.append(test_score)
+        train_score = r2_score(y_train, y_train_preds)
+        r2_scores_train.append(train_score)
+        print('Validating with %s features (Train/Test): %.4f, %.4f (R2-score)' % (reduce_X.shape[1], train_score, test_score))
         results[str(cutoff)] = r2_score(y_test, y_test_preds)
 
     if plot:
         plt.plot(num_feats, r2_scores_test, label="Test", alpha=.5)
         plt.plot(num_feats, r2_scores_train, label="Train", alpha=.5)
+        plt.ylim((-1,1))
         plt.xlabel('Number of Features')
         plt.ylabel('Rsquared')
         plt.title('Rsquared by Number of Features')
