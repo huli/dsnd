@@ -90,7 +90,8 @@ def train_test_scores_check(test_score, train_score):
 
     Prints statement related to the correctness of the rsquared_score and length_y_test
     '''
-    if test_score == s.test_score and train_score == s.train_score:
+    
+    if round(test_score, 2) == round(s.test_score,2) and round(train_score,2) == round(s.train_score,2):
         print("Nice job! That looks right!")
     else:
         print("That wasn't quite as expected.  Assure you followed the steps in the document string.  The very beginning of this notebook may also be useful to assist in completing this part!")
