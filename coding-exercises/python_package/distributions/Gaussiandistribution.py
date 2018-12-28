@@ -181,4 +181,4 @@ class Gaussian(Distribution):
 		
 		"""
 		
-		return "mean {}, standard deviation {}".format(self.mean, self.stdev)
+		return "Gaussian distribution (mean {}, standard deviation {})".format(self.mean, self.stdev)

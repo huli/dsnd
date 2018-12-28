@@ -29,10 +29,10 @@ class TestGaussianClass(unittest.TestCase):
         self.assertEqual(round(self.gaussian.stdev, 2), 88.55, 'population standard deviation incorrect')
 
     def test_pdf(self):
+        self.gaussian = Gaussian(25, 2)
         self.assertEqual(round(self.gaussian.pdf(25), 5), 0.19947,\
          'pdf function does not give expected result') 
-        self.gaussian.calculate_mean()
-        self.gaussian.calculate_stdev()
+        self.gaussian.read_data_file('numbers.txt')
         self.assertEqual(round(self.gaussian.pdf(75), 5), 0.00429,\
         'pdf function after calculating mean and stdev does not give expected result')      
 
