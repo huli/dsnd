@@ -29,20 +29,6 @@ class Binomial(Distribution):
     
     def __init__(self, prob=.5, size=20):
         
-        # TODO: store the probability of the distribution in an instance variable p
-        # TODO: store the size of the distribution in an instance variable n
-        
-        # TODO: Now that you know p and n, you can calculate the mean and standard deviation
-        #       Use the calculate_mean() and calculate_stdev() methods to calculate the
-        #       distribution mean and standard deviation
-        #
-        #       Then use the init function from the Distribution class to initialize the
-        #       mean and the standard deviation of the distribution
-        #
-        #       Hint: You need to define the calculate_mean() and calculate_stdev() methods
-        #               farther down in the code starting in line 55. 
-        #               The init function can get access to these methods via the self
-        #               variable.   
         self.p = prob
         self.n = size
 
@@ -187,14 +173,6 @@ class Binomial(Distribution):
         
         # Define addition for two binomial distributions. Assume that the
         # p values of the two distributions are the same.
-        
-        # Hint: You need to instantiate a new binomial object with the correct n, p, 
-        #   mean and standard deviation values. The __add__ method should return this
-        #   new binomial object.
-        
-        #   When adding two binomial distributions, the p value remains the same
-        #   The new n value is the sum of the n values of the two distributions.
-                
             
         result = Binomial()
         result.n = self.n + other.n
@@ -216,12 +194,6 @@ class Binomial(Distribution):
             string: characteristics of the Gaussian
         
         """
-        
-        # TODO: Define the representation method so that the output looks like
-        #       mean 5, standard deviation 4.5, p .8, n 20
-        #
-        #       with the values replaced by whatever the actual distributions values are
-        #       The method should return a string in the expected format
     
         return "Binomial distribution (mean {}, standard deviation {}, p {}, n {})".\
         format(self.mean, self.stdev, self.p, self.n)
