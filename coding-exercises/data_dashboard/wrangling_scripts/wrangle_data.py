@@ -160,17 +160,17 @@ def load_figures():
     # Make a bar chart showing the rural population of these countries ['United States', 'China', 'Japan', 'Germany', 'United Kingdom', 'India', 'France', 'Brazil', 'Italy', 'Canada'] in the year 2015.
     graph_five = []
     
-    for year in df_one[df_one['year'] > 2010]['year'].unique():
+    for country in countrylist:
         graph_five.append(
-            go.Bar(
-            x = df_one.country.tolist(),
-            y = df_one[df_one['year']==year].variable,
-            name = str(year)
+            go.Line(
+            x = df_one['year'].unique(),
+            y = df_one[df_one['country']==country].variable,
+            name = country
             )
         )
 
     layout_five = dict(title = 'Rural Population',
-            xaxis = dict(title = 'Country',),
+            xaxis = dict(title = 'Years',),
             yaxis = dict(title = '# of People'),
             )
     
